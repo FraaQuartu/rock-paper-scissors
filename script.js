@@ -75,5 +75,6 @@ function playGame() {
   else {
     console.log("Tie!");
   }
-
 }
+
+console.log(playGame());
