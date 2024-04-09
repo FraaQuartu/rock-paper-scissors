@@ -39,32 +39,14 @@ function playRound(userChoice, computerChoice) {
 function playGame() {
   let userScore = 0;
   let computerScore = 0;
+  let winner;
 
-  let winner = playRound(getUserChoice(), getComputerChoice());
-  console.log(winner);
-  if(winner == "User") {userScore+=1;}
-  else if(winner == "Computer") {computerScore+=1;}
-
-  winner = playRound(getUserChoice(), getComputerChoice());
-  console.log(winner);
-  if(winner == "User") {userScore+=1;}
-  else if(winner == "Computer") {computerScore+=1;}
-
-  winner = playRound(getUserChoice(), getComputerChoice());
-  console.log(winner);
-  if(winner == "User") {userScore+=1;}
-  else if(winner == "Computer") {computerScore+=1;}
-
-  winner = playRound(getUserChoice(), getComputerChoice());
-  console.log(winner);
-  if(winner == "User") {userScore+=1;}
-  else if(winner == "Computer") {computerScore+=1;}
-
-  winner = playRound(getUserChoice(), getComputerChoice());
-  console.log(winner);
-  if(winner == "User") {userScore+=1;}
-  else if(winner == "Computer") {computerScore+=1;}
-
+  for(let i = 0; i < 5; i++) {
+    winner = playRound(getUserChoice(), getComputerChoice());
+    console.log(winner);
+    if(winner == "User") {userScore+=1;}
+    else if(winner == "Computer") {computerScore+=1;}
+  }
 
   if(userScore > computerScore) {
     console.log("You win!");
