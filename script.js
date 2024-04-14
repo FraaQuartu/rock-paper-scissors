@@ -74,19 +74,30 @@ buttons.forEach((button) => {
     // Mostro il vincitore nel display
     document.querySelector("#winner > span").textContent = winner;
 
+    let scoreDiv;
     // Aggiorno i punteggi
     if(winner == "User") {
       scoreDiv = document.querySelector("#user-score > span")
-      let actualScore = scoreDiv.textContent;
-      actualScore = parseInt(actualScore);
-      scoreDiv.textContent = actualScore + 1;
     }
     else if(winner == "Computer") {
       scoreDiv = document.querySelector("#computer-score > span")
-      let actualScore = scoreDiv.textContent;
-      actualScore = parseInt(actualScore);
+    }
+    else {
+      scoreDiv = Nan;
+    }
+    let actualScore = scoreDiv.textContent;
+    actualScore = parseInt(actualScore);
+    if(actualScore+1 == 5) {
+      alert("Winner is " + winner);
+      // Reset scores
+      document.querySelector("#user-score > span").textContent = 0;
+      document.querySelector("#computer-score > span").textContent = 0;
+      document.querySelector("#winner > span").textContent = '';
+    }
+    else {
       scoreDiv.textContent = actualScore + 1;
     }
+
   });
 });
 
