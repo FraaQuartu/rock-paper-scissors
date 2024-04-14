@@ -11,11 +11,10 @@ function getComputerChoice() {
   }
 }
 
-function getUserChoice() {
-  return prompt("Choose Rock, Paper or Scissors");
-}
+// Play a single round
+function playRound(userChoice) {
+  let computerChoice = getComputerChoice();
 
-function playRound(userChoice, computerChoice) {
   if(userChoice == computerChoice) {
     return "Tie";
   }
@@ -36,27 +35,44 @@ function playRound(userChoice, computerChoice) {
   }
 }
 
-function playGame() {
-  let userScore = 0;
-  let computerScore = 0;
-  let winner;
+// // Play 5 rounds
+// function playGame() {
+//   let userScore = 0;
+//   let computerScore = 0;
+//   let winner;
 
-  for(let i = 0; i < 5; i++) {
-    winner = playRound(getUserChoice(), getComputerChoice());
-    console.log(winner);
-    if(winner == "User") {userScore+=1;}
-    else if(winner == "Computer") {computerScore+=1;}
-  }
+//   for(let i = 0; i < 5; i++) {
+//     winner = playRound(getUserChoice(), getComputerChoice());
+//     console.log(winner);
+//     if(winner == "User") {userScore+=1;}
+//     else if(winner == "Computer") {computerScore+=1;}
+//   }
 
-  if(userScore > computerScore) {
-    console.log("You win!");
-  }
-  else if(userScore < computerScore) {
-    console.log("You lose!");
-  }
-  else {
-    console.log("Tie!");
-  }
-}
+//   if(userScore > computerScore) {
+//     console.log("You win!");
+//   }
+//   else if(userScore < computerScore) {
+//     console.log("You lose!");
+//   }
+//   else {
+//     console.log("Tie!");
+//   }
+// }
 
-console.log(playGame());
+// playGame();
+
+
+buttons = document.querySelectorAll("button");
+
+
+buttons.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    // Prendo l'id
+    let userChoice = e.target.id;
+    // Gioco il game
+    let winner = playRound(userChoice);
+    // Faccio display del vincitore
+    alert(winner);
+  });
+});
+
