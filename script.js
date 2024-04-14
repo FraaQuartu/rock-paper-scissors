@@ -1,3 +1,5 @@
+// To do: refactor the code: 
+// add a few function to simplify the main loop
 function getComputerChoice() {
   const randomNumber = Math.ceil(Math.random() * 3);
   if(randomNumber == 1){
@@ -35,35 +37,8 @@ function playRound(userChoice) {
   }
 }
 
-// // Play 5 rounds
-// function playGame() {
-//   let userScore = 0;
-//   let computerScore = 0;
-//   let winner;
-
-//   for(let i = 0; i < 5; i++) {
-//     winner = playRound(getUserChoice(), getComputerChoice());
-//     console.log(winner);
-//     if(winner == "User") {userScore+=1;}
-//     else if(winner == "Computer") {computerScore+=1;}
-//   }
-
-//   if(userScore > computerScore) {
-//     console.log("You win!");
-//   }
-//   else if(userScore < computerScore) {
-//     console.log("You lose!");
-//   }
-//   else {
-//     console.log("Tie!");
-//   }
-// }
-
-// playGame();
-
 
 buttons = document.querySelectorAll("button");
-
 
 buttons.forEach((button) => {
   button.addEventListener("click", (e) => {
@@ -87,6 +62,8 @@ buttons.forEach((button) => {
     }
     let actualScore = scoreDiv.textContent;
     actualScore = parseInt(actualScore);
+
+    // Se c'è un vincitore faccio l'alert e resetto tutto
     if(actualScore+1 == 5) {
       alert("Winner is " + winner);
       // Reset scores
