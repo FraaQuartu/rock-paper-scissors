@@ -71,8 +71,22 @@ buttons.forEach((button) => {
     let userChoice = e.target.id;
     // Gioco il game
     let winner = playRound(userChoice);
-    // Faccio display del vincitore
-    alert(winner);
+    // Mostro il vincitore nel display
+    document.querySelector("#winner > span").textContent = winner;
+
+    // Aggiorno i punteggi
+    if(winner == "User") {
+      scoreDiv = document.querySelector("#user-score > span")
+      let actualScore = scoreDiv.textContent;
+      actualScore = parseInt(actualScore);
+      scoreDiv.textContent = actualScore + 1;
+    }
+    else if(winner == "Computer") {
+      scoreDiv = document.querySelector("#computer-score > span")
+      let actualScore = scoreDiv.textContent;
+      actualScore = parseInt(actualScore);
+      scoreDiv.textContent = actualScore + 1;
+    }
   });
 });
 
